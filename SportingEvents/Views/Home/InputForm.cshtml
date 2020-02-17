@@ -1,0 +1,79 @@
+﻿@model SportingEvents.Models.Responses
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>InputForm</title>
+</head>
+<body>
+    <div>
+        <form asp-action="InputForm" method="post">
+            <p>
+                <label asp-for="UserID"> uid</label>
+                <input asp-for="UserID" />
+            </p>
+            <p>
+                <label asp-for="Name"> Name: </label>
+                <input asp-for="Name" />
+            </p>
+            <p>
+                <label asp-for="DateOfBirth"> Date of Birth: </label>
+                <input asp-for="DateOfBirth" />
+            </p>
+            <p>
+                <label asp-for="Gender"> Gender: </label>
+                <input asp-for="Gender" />
+            </p>
+            <p>
+                <label asp-for="Email"> Email Address: </label>
+                <input asp-for="Email" />
+            </p>
+            <p>
+                <label asp-for="Address"> Home Address: </label>
+                <input asp-for="Address" />
+            </p>
+            <p>
+                <label asp-for="PostCode"> Post Code: </label>
+                <input asp-for="PostCode" />
+            </p>
+            <p>
+                <label asp-for="HomeTelephoneNumber"> Home Phone Number: </label>
+                <input asp-for="HomeTelephoneNumber" />
+            </p>
+            <p>
+                <label asp-for="MobileTelephoneNumber"> Mobile Phone Number: </label>
+                <input asp-for="MobileTelephoneNumber" />
+            </p>
+            <p>
+                <label asp-for="Biography"> Biography: </label>
+                <input asp-for="Biography" />
+            </p>
+            <p>
+                <label asp-for="SkillKeyWord"> Key words to indicate your skills: </label>
+                <input asp-for="SkillKeyWord" />
+            </p>
+            <p>
+                <label asp-for="Biography"> Biography: </label>
+                <input asp-for="Biography" />
+            </p>
+            <p>
+                <label asp-for="WorkLocation"> Location of where you work: </label>
+                <input asp-for="WorkLocation" />
+            </p>
+            <p>
+                <label> Submit? </label>
+                <select asp-for="ConfirmChoice">
+                    <option value="Are you sure this is the club you want to join?"> </option>
+                    <option value="true"> Yes </option>
+                    <option value="false"> No</option>
+                </select>
+            </p>
+            <button type="submit"> Submit</button>
+        </form>
+    </div>
+</body>
+</html>

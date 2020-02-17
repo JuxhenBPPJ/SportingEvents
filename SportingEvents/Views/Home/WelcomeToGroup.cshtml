@@ -1,0 +1,30 @@
+﻿@model SportingEvents.Models.Responses
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="="width="device-width" />
+    <title> welcome to the club </title>
+</head>
+<body>
+    <p>
+        <h1>
+            Welcome to the club @Model.Name! 
+        </h1>
+        @if (Model.ConfirmChoice == true)
+        {
+            @: We're glad you're joining our club, we're happy to have you!'
+        }
+        else 
+        { 
+            @: Sorry you've decided our club is not the best fit for you!'
+        }
+    </p>
+    <p> Click <a asp-action="ListOfUpcomingGames"> here</a>to see upcoming games!</p>
+</body>
+</html>

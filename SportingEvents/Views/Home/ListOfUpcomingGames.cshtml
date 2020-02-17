@@ -1,0 +1,35 @@
+﻿@model IEnumerable<SportingEvents.Models.Responses>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> ListOfUpcomingGames </title>
+</head>
+
+<body>
+    <h2> Below is the list of the next 3 games</h2>
+
+    <table>
+        <thread>
+            <tr>
+                <th> Sport </th>
+                <th> Date of Game </th>
+                <th> Location of Game </th>
+            </tr>
+        </thread>
+        <tbody>
+            @foreach (SportingEvents.Models.Responses r in Model) 
+            { 
+                <tr>
+                    <td>@r.Name</td>
+                    <td>@r.Email</td>
+                    <td>@r.Address</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
