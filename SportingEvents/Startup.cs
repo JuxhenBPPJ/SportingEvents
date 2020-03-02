@@ -34,7 +34,7 @@ namespace SportingEvents
                 option.UseSqlServer(
                       //Configuration["Data:UserResponses:ConnectionString"]));
                       Configuration.GetConnectionString("DefaultConnection")));
-                services.AddTransient<IUserRepository, TempUserRepository>();
+                services.AddTransient<IUserRepository, UserRepository>();
                 services.AddMvc();
                 //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             }
@@ -62,7 +62,7 @@ namespace SportingEvents
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=User}/{action=List}/{id?}");
             });
             InitialData.EnsurePopulated(app);
         } 

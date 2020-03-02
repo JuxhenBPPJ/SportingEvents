@@ -12,6 +12,6 @@ namespace SportingEvents.Models
         {
             context = ctx;
         }
-        public IQueryable<Responses> Responses => context.Responses;
+        public IQueryable<Responses> Responses => context.UserInfo;
     }
 }

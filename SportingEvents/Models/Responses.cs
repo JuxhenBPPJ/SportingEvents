@@ -7,7 +7,7 @@ namespace SportingEvents.Models
 {
     public class Responses
     {
-        public int UserID { get; set; }
+        public int id { get; set; }
         public string Name { get; set; }
         public string DateOfBirth { get; set; }
         public string Gender { get; set; }
@@ -19,7 +19,7 @@ namespace SportingEvents.Models
         public string Biography { get; set; }
         public string SkillKeyWord { get; set; }
         public string WorkLocation { get; set; }
-        public bool? ConfirmChoice { get; set; }
-        public bool? ListOfGames { get; set; }
+        public string UTID { get; set; }
+
     }
 }

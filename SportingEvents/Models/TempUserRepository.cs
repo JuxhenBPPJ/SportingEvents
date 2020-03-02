@@ -11,7 +11,7 @@ namespace SportingEvents.Models
         {
             new Responses { Name = "Juxhen", Gender ="Male"},
             new Responses { Name = "Jamshid", Gender="Male" },
-            new Responses { Name = "Jayna", Gender ="Female"}
+            new Responses { Name = "Jayna", Gender="Female"}
 
         }.AsQueryable<Responses>();
     }

@@ -13,7 +13,7 @@ namespace SportingEvents.Models
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options)
                 : base(options) { }
 
-        public DbSet<Responses> Responses { get; set; }
+        public DbSet<Responses> UserInfo { get; set; }
 
     }
 }

@@ -30,10 +30,10 @@ namespace SportingEvents.Controllers
             return View("WelcomeToGroup", responses);
         }
 
-        public ViewResult ListOfUpcomingGames() 
-        {
-            return View(Repository.responses.Where(r => r.ListOfGames == true));
-        }
+        //public ViewResult ListOfUpcomingGames() 
+        //{
+        //    return View(Repository.responses.Where(r => r.ListOfGames == true));
+        //}
 
 
     }

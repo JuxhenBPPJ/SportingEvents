@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace SportingEvents.Models
 {
     public class InitialData
@@ -16,9 +15,9 @@ namespace SportingEvents.Models
             ApplicationDBContext context = app.ApplicationServices
                 .GetRequiredService<ApplicationDBContext>();
             context.Database.Migrate();
-            if (!context.Responses.Any())
+            if (!context.UserInfo.Any())
             {
-                context.Responses.AddRange(
+                context.UserInfo.AddRange(
                     new Responses
                     {
                         Name = "Juxhen",
@@ -31,7 +30,8 @@ namespace SportingEvents.Models
                         MobileTelephoneNumber = "108349751230",
                         Biography = "I Like all the sports",
                         SkillKeyWord =" fast,furious,smart",
-                        WorkLocation =" London"
+                        WorkLocation =" London",
+                        UTID ="Admin"
                     },
                     new Responses
                     {
@@ -45,7 +45,8 @@ namespace SportingEvents.Models
                         MobileTelephoneNumber = "765756757445",
                         Biography = "I Like football",
                         SkillKeyWord =" slow, smart, steady",
-                        WorkLocation =" London"
+                        WorkLocation =" London",
+                        UTID = "User"
                     });
                 context.SaveChanges();
             }        
