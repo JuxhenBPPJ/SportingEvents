@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Data;
-using System.Data.SqlClient;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 
 namespace SportingEvents.Models
 {
@@ -21,7 +16,7 @@ namespace SportingEvents.Models
         public string Biography { get; set; }
         public string SkillKeyWord { get; set; }
         public string WorkLocation { get; set; }
-        public string UTID { get; set; }
+        //public string UTID { get; set; }
 
         public int SaveDetails()
         {

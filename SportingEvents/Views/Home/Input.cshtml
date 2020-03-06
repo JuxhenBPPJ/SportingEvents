@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = " User Profile";
+}
+<h1> Sign Up for Events</h1>
+<form asp-controller="Home" asp-action="GetDetails" method="post">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input name="Name" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input name="DateOfBirth" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input name="Gender" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input name="Email" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input name="Address" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input name="PostCode" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input name="HomeTelephoneNumber" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input name="MobileTelephoneNumber" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input name="Biography" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input name="SkillKeyWord" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input name="WorkLocation" type="text" /></td>
+        </tr>
+    </table>
+<input id="Submit1" type="submit" value="submit" />
+</form>
+
+<h2 style="font-style:italic; color:deeppink"> @ViewBag.Result</h2>
+
+

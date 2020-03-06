@@ -62,7 +62,7 @@ namespace SportingEvents
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=User}/{action=List}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
             InitialData.EnsurePopulated(app);
         } 

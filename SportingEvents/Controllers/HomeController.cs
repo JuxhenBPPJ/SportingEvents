@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SportingEvents.Models;
+using System;
 
 namespace SportingEvents.Controllers
 {
@@ -14,13 +10,7 @@ namespace SportingEvents.Controllers
         {
             int hour = DateTime.Now.Hour;
             ViewBag.Greeting = hour < 12 ? "Good Morning" : "Good Afternoon";
-            return View("InviteView");
-        }
-
-        [HttpGet]
-        public ViewResult InputForm()
-        {
-            return View();
+            return View("Index");
         }
 
         [HttpPost]
@@ -30,8 +20,12 @@ namespace SportingEvents.Controllers
             return View("WelcomeToGroup", responses);
         }
 
-        public IActionResult UserDetails() { return View(); }
+        public ViewResult Input()
+        {
+            return View();
+        }
 
+        [HttpPost]
         public IActionResult GetDetails() 
         {
             Responses usermodel = new Responses
@@ -58,14 +52,7 @@ namespace SportingEvents.Controllers
             {
                 ViewBag.Result = "Registration Unsuccessful";
             }
-            return View("UserDetails");
+            return View("Input");
         }
-
-        public IActionResult SignUpView() 
-        {
-            return View();
-        }
-
-
     }
 }

@@ -31,7 +31,7 @@ namespace SportingEvents.Models
                         Biography = "I Like all the sports",
                         SkillKeyWord =" fast,furious,smart",
                         WorkLocation =" London",
-                        UTID ="Admin"
+                        //UTID ="Admin"
                     },
                     new Responses
                     {
@@ -46,7 +46,7 @@ namespace SportingEvents.Models
                         Biography = "I Like football",
                         SkillKeyWord =" slow, smart, steady",
                         WorkLocation =" London",
-                        UTID = "User"
+                        //UTID = "User"
                     });
                 context.SaveChanges();
             }        
