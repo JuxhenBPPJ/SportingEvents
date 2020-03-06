@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 
 namespace SportingEvents.Models
@@ -21,5 +23,26 @@ namespace SportingEvents.Models
         public string WorkLocation { get; set; }
         public string UTID { get; set; }
 
+        public int SaveDetails()
+        {
+            SqlConnection connection = new SqlConnection(CallConnectionString.ConnectionString());
+            string query = "INSERT INTO UserInfo(Name, DateOfBirth, Gender, Email, Address, PostCode, HomeTelephoneNumber, MobileTelephoneNumber, Biography, SkillKeyWord, WorkLocation) values ('" + Name + "', '" + DateOfBirth + "','" + Gender + "','" + Email + "','" + Address + "','" + PostCode + "','" + HomeTelephoneNumber + "','" + MobileTelephoneNumber + "','" + Biography + "','" + SkillKeyWord + "','" + WorkLocation + "')";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            connection.Open();
+            int x = cmd.ExecuteNonQuery();
+            connection.Close();
+            return x;
+        }
+
+        public int DisplayData() 
+        {
+            SqlConnection connection = new SqlConnection(CallConnectionString.ConnectionString());
+            string query = "SELECT * FROM UserInfo";
+            SqlCommand command = new SqlCommand(query, connection);
+            connection.Open();
+            int x = command.ExecuteNonQuery();
+            connection.Close();
+            return x;
+        }
     }
 }
