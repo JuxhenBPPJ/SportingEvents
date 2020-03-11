@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SportingEvents.Models;
 using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 
 namespace SportingEvents.Controllers
 {
@@ -53,6 +55,39 @@ namespace SportingEvents.Controllers
                 ViewBag.Result = "Registration Unsuccessful";
             }
             return View("Input");
+        }
+        // 11/03/2020 ADDED ADMINISTRATOR
+        public ActionResult Administrator() 
+        {
+            SqlConnection connection = new SqlConnection(CallConnectionString.ConnectionString());
+            String sql = "SELECT * FROM UserInfo";
+            SqlCommand cmd = new SqlCommand(sql, connection);
+
+            var userList = new List<ResponsesList>();
+            using (connection) 
+            {
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read()) 
+                {
+                    var Responses = new Responses();
+                    Responses.id = reader.GetInt32(0);
+                    Responses.Name = reader["Name"].ToString();
+                    Responses.DateOfBirth = reader["DateOfBirth"].ToString();
+                    Responses.Gender = reader["Name"].ToString();
+                    Responses.Email = reader["Name"].ToString();
+                    Responses.Address = reader["Name"].ToString();
+                    Responses.PostCode = reader["Name"].ToString();
+                    Responses.HomeTelephoneNumber = reader["Name"].ToString();
+                    Responses.MobileTelephoneNumber = reader["Name"].ToString();
+                    Responses.Biography = reader["Name"].ToString();
+                    Responses.SkillKeyWord = reader["Name"].ToString();
+                    Responses.WorkLocation = reader["Name"].ToString();
+
+                    ResponsesList.Add(Responses);
+                }
+            }
+            return View(ResponsesList);
         }
     }
 }
