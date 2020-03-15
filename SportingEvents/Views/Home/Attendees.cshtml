@@ -1,0 +1,32 @@
+﻿@model List<Responses>
+@{
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> Attendees </title>
+</head>
+
+<body>
+    <h2>List of attendees</h2>
+
+    <table>
+        <thread>
+            <tr>
+                <th> Name </th>
+
+            </tr>
+        </thread>
+        <tbody>
+            @foreach (Responses r in Model)
+            {
+                <tr>
+                    <td>@r.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

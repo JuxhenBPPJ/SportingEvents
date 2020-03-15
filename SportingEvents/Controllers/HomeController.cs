@@ -63,31 +63,36 @@ namespace SportingEvents.Controllers
             String sql = "SELECT * FROM UserInfo";
             SqlCommand cmd = new SqlCommand(sql, connection);
 
-            var userList = new List<ResponsesList>();
+            var userList = new List<Responses>();
             using (connection) 
             {
                 connection.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read()) 
                 {
-                    var Responses = new Responses();
-                    Responses.id = reader.GetInt32(0);
-                    Responses.Name = reader["Name"].ToString();
-                    Responses.DateOfBirth = reader["DateOfBirth"].ToString();
-                    Responses.Gender = reader["Name"].ToString();
-                    Responses.Email = reader["Name"].ToString();
-                    Responses.Address = reader["Name"].ToString();
-                    Responses.PostCode = reader["Name"].ToString();
-                    Responses.HomeTelephoneNumber = reader["Name"].ToString();
-                    Responses.MobileTelephoneNumber = reader["Name"].ToString();
-                    Responses.Biography = reader["Name"].ToString();
-                    Responses.SkillKeyWord = reader["Name"].ToString();
-                    Responses.WorkLocation = reader["Name"].ToString();
+                    var userResponse = new Responses();
+                    userResponse.id = reader.GetInt32(0);
+                    userResponse.Name = reader["Name"].ToString();
+                    userResponse.DateOfBirth = reader["DateOfBirth"].ToString();
+                    userResponse.Gender = reader["Gender"].ToString();
+                    userResponse.Email = reader["Email"].ToString();
+                    userResponse.Address = reader["Address"].ToString();
+                    userResponse.PostCode = reader["PostCode"].ToString();
+                    userResponse.HomeTelephoneNumber = reader["HomeTelephoneNumber"].ToString();
+                    userResponse.MobileTelephoneNumber = reader["MobileTelephoneNumber"].ToString();
+                    userResponse.Biography = reader["Biography"].ToString();
+                    userResponse.SkillKeyWord = reader["SkillKeyWord"].ToString();
+                    userResponse.WorkLocation = reader["WorkLocation"].ToString();
 
-                    ResponsesList.Add(Responses);
+                    userList.Add(userResponse);
                 }
             }
-            return View(ResponsesList);
+            return View(userList);
+        }
+
+        public ViewResult Attendees()
+        {
+            return View();
         }
     }
 }
