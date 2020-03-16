@@ -4,26 +4,50 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title> Attendees </title>
+    <title> Members Information </title>
 </head>
 
 <body>
-    <h2>List of attendees</h2>
-    <table class="table table-bordered table-striped">
-        <thread>
-            <tr>
-                <th> Name </th>
-
-            </tr>
-        </thread>
-        <tbody>
-            @foreach (Responses r in Model)
-            {
+    <h2>List of members</h2>
+    <form asp-controller="Home" asp-action="GetDetails" method="post">
+        <table class="table table-bordered table-striped">
+            <thread>
                 <tr>
-                    <td>@r.Name</td>
+                    <th> Name </th>
+                    <th> DateOfBirth </th>
+                    <th> Gender </th>
+                    <th> Email </th>
+                    <th> Address </th>
+                    <th> PostCode </th>
+                    <th> HomeTelephoneNumber </th>
+                    <th> MobileTelephoneNumber </th>
+                    <th> Biography </th>
+                    <th> SkillKeyWord </th>
+                    <th> WorkLocation </th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thread>
+            <tbody>
+                @foreach (Responses r in Model)
+                {
+                    <tr>
+                        <td>@r.Name</td>
+                        <td>@r.DateOfBirth</td>
+                        <td>@r.Gender</td>
+                        <td>@r.Email</td>
+                        <td>@r.Address</td>
+                        <td>@r.PostCode</td>
+                        <td>@r.HomeTelephoneNumber</td>
+                        <td>@r.MobileTelephoneNumber</td>
+                        <td>@r.Biography</td>
+                        <td>@r.SkillKeyWord</td>
+                        <td>@r.WorkLocation</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <input id="Submit1" type="submit" value="Add Member" />
+        <input id="Submit2" type="submit" value="Edit Member" />
+        <input id="Submit3" type="submit" value="Delete Member" />
+        </form>
 </body>
 </html>

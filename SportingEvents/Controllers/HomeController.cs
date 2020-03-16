@@ -56,7 +56,7 @@ namespace SportingEvents.Controllers
             }
             return View("Input");
         }
-        // 11/03/2020 ADDED ADMINISTRATOR
+
         public ActionResult Attendees() 
         {
             SqlConnection connection = new SqlConnection(CallConnectionString.ConnectionString());
@@ -88,6 +88,44 @@ namespace SportingEvents.Controllers
                 }
             }
             return View(userList);
+        }
+
+        public ActionResult Events() 
+        {
+            return View("Events");
+        }
+
+        public ActionResult Remove() 
+        {
+            SqlConnection connection = new SqlConnection(CallConnectionString.ConnectionString());
+            String sql = "SELECT * FROM UserInfo";
+            SqlCommand cmd = new SqlCommand(sql, connection);
+
+            var removeUser = new List<Responses>();
+            using (connection)
+            {
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    var userResponse = new Responses();
+                    userResponse.id = reader.GetInt32(0);
+                    userResponse.Name = reader["Name"].ToString();
+                    userResponse.DateOfBirth = reader["DateOfBirth"].ToString();
+                    userResponse.Gender = reader["Gender"].ToString();
+                    userResponse.Email = reader["Email"].ToString();
+                    userResponse.Address = reader["Address"].ToString();
+                    userResponse.PostCode = reader["PostCode"].ToString();
+                    userResponse.HomeTelephoneNumber = reader["HomeTelephoneNumber"].ToString();
+                    userResponse.MobileTelephoneNumber = reader["MobileTelephoneNumber"].ToString();
+                    userResponse.Biography = reader["Biography"].ToString();
+                    userResponse.SkillKeyWord = reader["SkillKeyWord"].ToString();
+                    userResponse.WorkLocation = reader["WorkLocation"].ToString();
+
+                    removeUser.Remove(userResponse);
+                }
+            }
+            return View(removeUser);
         }
     }
 }

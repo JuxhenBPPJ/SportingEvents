@@ -3,7 +3,7 @@
 }
 <h1> Sign Up for Events</h1>
 <form asp-controller="Home" asp-action="GetDetails" method="post">
-    <table>
+    <table class="table table-bordered table-striped">
         <tr>
             <td>Name:</td>
             <td><input name="Name" type="text" /></td>
@@ -49,7 +49,7 @@
             <td><input name="WorkLocation" type="text" /></td>
         </tr>
     </table>
-<input id="Submit1" type="submit" value="submit" />
+    <input id="Submit1" type="submit" value="submit" />
 </form>
 
 <h2 style="font-style:italic; color:green"> @ViewBag.Result</h2>
