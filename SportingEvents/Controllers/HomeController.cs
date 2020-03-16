@@ -57,7 +57,7 @@ namespace SportingEvents.Controllers
             return View("Input");
         }
         // 11/03/2020 ADDED ADMINISTRATOR
-        public ActionResult Administrator() 
+        public ActionResult Attendees() 
         {
             SqlConnection connection = new SqlConnection(CallConnectionString.ConnectionString());
             String sql = "SELECT * FROM UserInfo";
@@ -88,11 +88,6 @@ namespace SportingEvents.Controllers
                 }
             }
             return View(userList);
-        }
-
-        public ViewResult Attendees()
-        {
-            return View();
         }
     }
 }
