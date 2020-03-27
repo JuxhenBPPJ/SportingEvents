@@ -127,5 +127,38 @@ namespace SportingEvents.Controllers
             }
             return View(removeUser);
         }
+
+        // update maybe remove
+
+        public ActionResult Update()
+        {
+            SqlConnection connection = new SqlConnection(CallConnectionString.ConnectionString());
+            String sql = "SELECT * FROM UserInfo";
+            SqlCommand cmd = new SqlCommand(sql, connection);
+
+            var removeUser = new List<Responses>();
+            using (connection)
+            {
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    var userResponse = new Responses();
+                    userResponse.id = reader.GetInt32(0);
+                    userResponse.Name = reader["Name"].ToString();
+                    userResponse.DateOfBirth = reader["DateOfBirth"].ToString();
+                    userResponse.Gender = reader["Gender"].ToString();
+                    userResponse.Email = reader["Email"].ToString();
+                    userResponse.Address = reader["Address"].ToString();
+                    userResponse.PostCode = reader["PostCode"].ToString();
+                    userResponse.HomeTelephoneNumber = reader["HomeTelephoneNumber"].ToString();
+                    userResponse.MobileTelephoneNumber = reader["MobileTelephoneNumber"].ToString();
+                    userResponse.Biography = reader["Biography"].ToString();
+                    userResponse.SkillKeyWord = reader["SkillKeyWord"].ToString();
+                    userResponse.WorkLocation = reader["WorkLocation"].ToString();
+                }
+            }
+            return View(removeUser);
+        }
     }
 }

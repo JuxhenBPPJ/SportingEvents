@@ -29,6 +29,28 @@ namespace SportingEvents.Models
             return x;
         }
 
+        public int UpdateDetails()
+        {
+            SqlConnection connection = new SqlConnection(CallConnectionString.ConnectionString());
+            string query = "UPDATE UserInfo SET (Name, DateOfBirth, Gender, Email, Address, PostCode, HomeTelephoneNumber, MobileTelephoneNumber, Biography, SkillKeyWord, WorkLocation) values ('" + Name + "', '" + DateOfBirth + "','" + Gender + "','" + Email + "','" + Address + "','" + PostCode + "','" + HomeTelephoneNumber + "','" + MobileTelephoneNumber + "','" + Biography + "','" + SkillKeyWord + "','" + WorkLocation + "')";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            connection.Open();
+            int x = cmd.ExecuteNonQuery();
+            connection.Close();
+            return x;
+        }
+
+        public int DeleteDetails()
+        {
+            SqlConnection connection = new SqlConnection(CallConnectionString.ConnectionString());
+            string query = "TRUNCATE UserInfo(Name, DateOfBirth, Gender, Email, Address, PostCode, HomeTelephoneNumber, MobileTelephoneNumber, Biography, SkillKeyWord, WorkLocation) values ('" + Name + "', '" + DateOfBirth + "','" + Gender + "','" + Email + "','" + Address + "','" + PostCode + "','" + HomeTelephoneNumber + "','" + MobileTelephoneNumber + "','" + Biography + "','" + SkillKeyWord + "','" + WorkLocation + "')";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            connection.Open();
+            int x = cmd.ExecuteNonQuery();
+            connection.Close();
+            return x;
+        }
+
         public int DisplayData() 
         {
             SqlConnection connection = new SqlConnection(CallConnectionString.ConnectionString());
